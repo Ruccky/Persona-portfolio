@@ -1,4 +1,3 @@
-/* Custom properties/variables  */
 :root {
   --main-white: #f0f0f0;
   --main-red: #ff6347;
@@ -7,13 +6,11 @@
   --main-steel-blue: #4682b4;
 }
 
-/* Base reset */
 * {
   margin: 0;
   padding: 0;
 }
 
-/* box-sizing and font sizing */
 *,
 *::before,
 *::after {
@@ -22,56 +19,31 @@
 
 html {
   box-sizing: border-box;
-
-  /* Set font size for easy rem calculations
-   * default document font size = 16px, 1rem = 16px, 100% = 16px
-   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
-  */
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
-/* A few media query to set some font sizes at different screen sizes.
- * This helps automate a bit of responsiveness.
- * The trick is to use the rem unit for size values, margin and padding.
- * Because rem is relative to the document font size
- * when we scale up or down the font size on the document
- * it will affect all properties using rem units for the values.
-*/
-
-/* I am using the em unit for breakpoints
- * The calculation is the following
- * screen size divided by browser base font size
- * As an example: a breakpoint at 980px
- * 980px / 16px = 61.25em
-*/
-
-/* 1200px / 16px = 75em */
 @media (max-width: 75em) {
   html {
     font-size: 60%;
   }
 }
 
-/* 980px / 16px = 61.25em */
 @media (max-width: 61.25em) {
   html {
     font-size: 58%;
   }
 }
 
-/* 460px / 16px = 28.75em */
 @media (max-width: 28.75em) {
   html {
     font-size: 55%;
   }
 }
 
-/* Base styles */
-
 body {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.8rem; /* 18px */
+  font-size: 1.8rem;
   font-weight: 400;
   line-height: 1.4;
   color: var(--main-white);
@@ -105,8 +77,6 @@ img {
   display: block;
   width: 100%;
 }
-
-/* nav */
 
 .nav {
   display: flex;
@@ -145,17 +115,24 @@ img {
   background: var(--main-blue);
 }
 
-/* Welcome section */
-
 .welcome-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
-  background-color: #000;
-  background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+  height: 120vh;
+  background-image: linear-gradient(
+      115deg,
+      rgba(79, 79, 79, 0.8),
+      rgba(220, 220, 220, 0.7)
+    ),
+    url(https://raw.githubusercontent.com/Ruccky/Persona-portfolio/master/due_code.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #00EEEE;
+  text-shadow: 1px 2px 2px #000000;
 }
 
 .welcome-section > p {
@@ -164,8 +141,6 @@ img {
   font-style: italic;
   color: var(--main-red);
 }
-
-/* Projects section */
 
 .projects-section {
   text-align: center;
@@ -185,7 +160,6 @@ img {
   }
 }
 
-/* "Automagic" image grid using no media queries */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -209,7 +183,7 @@ img {
 .project {
   background: var(--main-gray);
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  border-radius: 2px;
+  border-radius: 1.85rem;
 }
 
 .code {
@@ -218,13 +192,15 @@ img {
 }
 
 .project:hover .code {
-  color: #ff7f50;
+  color: #ffffff;
 }
 
 .project-image {
   height: calc(100% - 6.8rem);
   width: 100%;
   object-fit: cover;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 1.85rem;
 }
 
 .project-title {
@@ -258,8 +234,6 @@ img {
   transition: transform 0.3s ease-out;
 }
 
-/* Contact section */
-
 .contact-section {
   display: flex;
   flex-direction: column;
@@ -281,7 +255,6 @@ img {
     font-size: 4rem;
   }
 }
-
 .contact-section-header > p {
   font-style: italic;
 }
@@ -302,10 +275,8 @@ img {
 }
 
 .contact-details:hover {
-  transform: translateY(8px);
+  transform: translateY(5px);
 }
-
-/* Footer */
 
 footer {
   font-weight: 300;
